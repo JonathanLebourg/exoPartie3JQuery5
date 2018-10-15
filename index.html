@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Exercice 5 JQuery - Partie 3</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <script src="jquery-3.2.1.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="exercice">
+    <h1>Exercice 5 JQuery - Partie 3</h1>
+    <p>Construisez une page html avec un carré et un champ de saisie de texte dans un formulaire.
+Lorsque l'on appuie sur une touche de direction le carré se déplace de 10 px dans la bonne direction.
+Quand le bloc atteint un bord de la page, il doit réaparaître de l'autre côté.
+    </p>
+  </div>
+
+<input type="text" id="input"></input>
+<div id="square"></div>
+
+
+<script>
+var windowWidth = $(window).width();
+var windowHeight = $(window).height();
+var squareWidth = $("#square").width();
+var squareHeight = $("#square").height();
+
+$("#input").click(function(event){
+$(document).keydown(function(e){
+  switch (e.which){
+    case 37:
+    //Move left
+    $('#square').css({'left' :'-=50px' });
+    if($('#square').position().left<=0){
+      $('#square').css('left', windowWidth-squareWidth);}
+    break;
+    case 39:
+    //-Move right
+    $('#square').css({'left' :'+=50px' });
+    if($('#square').position().left>=windowWidth-squareWidth){
+      $('#square').css('left', 0);}
+    break;
+    case 38:
+    //-Move up
+    $('#square').css({'top' :'-=50px' });
+    if($('#square').position().top<=0){
+      $('#square').css('top', windowHeight-squareHeight);}
+    break;
+    case 40:
+    //-Move down
+    $('#square').css({'top' :'+=50px' });
+    if($('#square').position().top>=window.innerHeight-squareWidth){
+      $('#square').css('top', 0);}
+    break;
+    default:
+    break;
+  }
+})
+})
+   // if(event.keyCode == 37)
+   // {$('#square').animate({'left' :'-=10px' });
+   // break;}
+   // if(event.keyCode == 39)
+   // {$('#square').animate({'left' :'+=10px' });
+   // break;}
+
+
+
+
+
+
+</script>
+</body>
+
+<footer>
+<p>Exercices réalisés à
+<a href="https://lamanu.fr/le-havre">LaManu</a></p>
+</footer>
+</html>
