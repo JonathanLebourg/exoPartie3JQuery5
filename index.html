@@ -22,6 +22,11 @@ Quand le bloc atteint un bord de la page, il doit réaparaître de l'autre côt�
 
 
 <script>
+//déclaration des variables
+// largeur de la fenêtre
+// hauteur de la fenêtre
+// largeur du carré
+// hauteur de carré
 var windowWidth = $(window).width();
 var windowHeight = $(window).height();
 var squareWidth = $("#square").width();
@@ -32,26 +37,26 @@ $(document).keydown(function(e){
   switch (e.which){
     case 37:
     //Move left
-    $('#square').css({'left' :'-=50px' });
-    if($('#square').position().left<=0){
-      $('#square').css('left', windowWidth-squareWidth);}
-    break;
+    $('#square').css({'left' :'-=10px' });
+    if($('#square').position().left<=0){ // quand carré completement à gauche
+      $('#square').css('left', windowWidth-squareWidth);} //retour à droite
+    break; // breack casse la fonction afin que ça ne lise pas la totalité et réaliser le switch
     case 39:
-    //-Move right
-    $('#square').css({'left' :'+=50px' });
-    if($('#square').position().left>=windowWidth-squareWidth){
-      $('#square').css('left', 0);}
+    //Move right
+    $('#square').css({'left' :'+=10px' });
+    if($('#square').position().left>=windowWidth-squareWidth){ // quand carré à droite
+      $('#square').css('left', 0);} // retour à gauche
     break;
     case 38:
-    //-Move up
-    $('#square').css({'top' :'-=50px' });
-    if($('#square').position().top<=0){
-      $('#square').css('top', windowHeight-squareHeight);}
+    //Move up
+    $('#square').css({'top' :'-=10px' });
+    if($('#square').position().top<=0){ // quand carré en haut
+      $('#square').css('top', windowHeight-squareHeight);} // retour en bas
     break;
     case 40:
-    //-Move down
-    $('#square').css({'top' :'+=50px' });
-    if($('#square').position().top>=window.innerHeight-squareWidth){
+    //Move down
+    $('#square').css({'top' :'+=10px' }); // quand carré en bas
+    if($('#square').position().top>=window.innerHeight-squareWidth){ //retour en haut
       $('#square').css('top', 0);}
     break;
     default:
@@ -59,17 +64,6 @@ $(document).keydown(function(e){
   }
 })
 })
-   // if(event.keyCode == 37)
-   // {$('#square').animate({'left' :'-=10px' });
-   // break;}
-   // if(event.keyCode == 39)
-   // {$('#square').animate({'left' :'+=10px' });
-   // break;}
-
-
-
-
-
 
 </script>
 </body>
